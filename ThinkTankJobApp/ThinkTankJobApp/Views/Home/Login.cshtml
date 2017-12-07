@@ -1,0 +1,120 @@
+﻿@model ThinkTankJobApp.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- signin-page -->
+<section id="submain" class="clearfix user-page">
+    <div class="container">
+        <div class="row text-center">
+            <!-- user-login -->
+            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                <div class="user-account">
+                    <h2>User Login</h2>
+                    <div class="alert alert-success col-md-12" style="display: none;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Success!</strong> <div class="col-md-12" id="successMsg">This alert box could indicate a dangerous or potentially negative action.</div>
+                    </div>
+                    <div class="alert alert-info col-md-12" style="display: none;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Info!</strong> This alert box could indicate a neutral informative change or action.
+                    </div>
+                    <div class="alert alert-warning col-md-12" style="display: none;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Warning!</strong> <div class="col-md-12" id="WarningMsg">This alert box could indicate a dangerous or potentially negative action.</div>
+                    </div>
+                    <div class="alert alert-danger col-md-12" style="display: none;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Error!</strong> <div class="col-md-12" id="dangerMsg">This alert box could indicate a dangerous or potentially negative action.</div>
+                    </div>
+                  
+                    <!-- form -->
+                    @using (Ajax.BeginForm("Login", "Home", null, new AjaxOptions() { HttpMethod = "POST", LoadingElementId = "progress-indicator", OnSuccess = "login_redirect", OnBegin = "AjaxBeginSave", OnFailure = "AjaxFailure" }, new { data_parsley_validate = "true" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            <input class="form-control" name="user" data-parsley-required="true" data-parsley-maxlength="30" placeholder="USERNAME" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="word" data-parsley-required="true" data-parsley-maxlength="30" class="form-control" placeholder="PASSWORD">
+                        </div>
+
+
+                    <!-- forgot-password -->
+                        <div class="user-option">
+                            <div class="checkbox pull-left">
+                                <label for="logged"><input type="checkbox" name="rememberme" id="logged"> Keep me logged in </label>
+                            </div>
+                            <div class="pull-right forgot-password">
+                                <a href="/Home/ForgotPassword">Forgot password</a>
+                            </div>
+                        </div><!-- forgot-password -->
+                        
+                        <button type="submit" id="btnLogin" data-style="expand-right" class="btn btn-lg m-b-40">Login</button>
+                    }
+                </div>
+                <a href="/Home/Register" class="btn-primary">Create a New Account</a>
+            </div><!-- user-login -->
+        </div><!-- row -->
+    </div><!-- container -->
+</section><!-- signin-page -->
+<script>
+    function AjaxBeginSave() {
+        var l = Ladda.create(document.getElementById('btnLogin'));
+        l.start();
+    }
+    function AjaxFailure() {
+        var l = Ladda.create(document.getElementById('btnLogin'));
+        l.stop();
+    }
+    myVar = null;
+    function login_redirect(data) {
+        clearTimeout(myVar);
+        debugger;
+        //alert();
+        var l = Ladda.create(document.getElementById('btnLogin'));
+        l.stop();
+        if (data.success) {
+
+
+            //UpdateDataRecords();
+            //location.reload();
+            location.href = '/Home/Index';
+
+
+        }
+        else {
+            //grecaptcha.reset();
+            if (data.failcount > 3 && data.failcount < 5) {
+                // $("#captcha").slideDown();
+                window.location.href = "/Home/Login";
+            }
+
+
+            else {
+                //alert('asd')
+                $('.alert-danger').slideDown();
+                $('#dangerMsg').html(data.message);
+
+                myVar = setTimeout(function () {
+                    $('.alert-danger').slideUp();
+                }, 6000);
+            }
+
+
+        }
+        grecaptcha.reset();
+    }
+    //OnReloadCaptchaError();
+    //function OnReloadCaptchaError()
+    //{
+    //    $('.alert-danger-captcha').slideDown();
+    //    //$('#dangerMsg').html(data.message);
+
+    //    setTimeout(function () {
+    //        $('.alert-danger-captcha').slideUp();
+    //    }, 6000);
+    //}
+</script>

@@ -1,0 +1,81 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace ThinkTankJobApp.Models
+{
+    public class ErrorProvider
+    {
+        public enum ErrorCode
+        {
+            GeneralError = 999,
+            Success = 1011,
+            Failure = 1001,
+            RegistrationSucces = 111,
+            RegistrationFailed = 201,
+            UserInActive = 400,
+            UserExists = 211,
+            ActivationSuccess = 123,
+            ActivationFailed = 112,
+            LinkExpired = 145,
+            Exception = 444,
+            LoginSuccess = 333,
+            LoginFailure = 312,
+            UserBlocked = 313,
+            FirstLogin = 010,
+            UserNotExist = 011,
+            InvalidUserNamePass = 014,
+            ForgotPasswordSuccess = 015,
+            ForgotPasswordFailure = 016,
+            ResetConfirmTokenSuccess = 434,
+            ResetConfirmTokenFailed = 435,
+            ResetPasswordSuccess = 436,
+            ResetPasswordFailure = 437,
+            PasswordTokenSuccess = 439,
+            PaswordTokenExpired = 440,
+            PasswordTokenInvalid = 441,
+            ServiceDomainListSuccess = 500,
+            ServiceDomainListFailure = 501,
+            NoRecords = 503,
+            ServiceListSuccess = 504,
+            ServiceListFailure = 505,
+            ServicePostSuccess = 800,
+            ServicePostFailure = 801,
+            ActivationPostSuccess = 901,
+            ActivationPostFailure = 902,
+            BookingSuccess = 682,
+            BookingFailure = 683,
+            BookingExist = 990,
+            BookingListSuccess = 684,
+            BookingListFailure = 685,
+            AcceptBookingSuccess = 686,
+            AcceptBookingFailure = 687,
+            RejectBookingSuccess = 688,
+            RejectBookingFailure = 689,
+            TimeLinedSuccess = 690,
+            TimeLinedFailure = 691,
+            FavSuccess = 692,
+            FavFailure = 693,
+            CancelRequestSuccess = 694,
+            CancelRequestFailure = 695,
+            PushnotificationFailure = 909,
+            ServiceNameExists = 673,
+            UpdateUserSuccess = 127,
+            UpdateUserFailure = 128,
+            ReviewSuccess = 129,
+            ReviewFailure = 130,
+            CountryListSuccess = 131,
+            CountryListFailure = 132,
+            CheckUserExistSuccess = 133,
+            CheckUserExistFailure = 134,
+            SelectedStateListSuccess = 135,
+            SelectedStateListFailure = 136,
+            SelectedCityListSuccess = 137,
+            SelectedCityListFailure = 138,
+            BookingLinkSuccess = 139,
+            BookingLinkUsed = 140,
+            BookingLinkFailure = 141
+        }
+    }
+}

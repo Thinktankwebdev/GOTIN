@@ -1,0 +1,119 @@
+﻿@model ThinkTankJobApp.Models.JobDetailsModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="main" class="clearfix  ad-profile-page">
+    <div class="container">
+        <div class="breadcrumb-section">
+
+            <h2 class="title">Details Page</h2>
+        </div><!-- banner -->
+        <div class="ad-profile section">
+            <div class="ad-item row">
+
+                <!-- rending-text -->
+                <div class="item-info col-sm-12">
+                    <!-- ad-info -->
+
+                    <div class="ad-info col-sm-4">
+                        <h4 class="item-title"><a href="#">@Model.Job_organization</a></h4>
+                        <div class="item-cat">
+                            <h4 class="item-title"><a href="#">@Model.Job_city</a></h4>
+                            
+                        </div>
+                    </div><!-- ad-info -->
+                    <div class="ad-info col-sm-4">
+                        <a href="#" class="tag"><i class="fa fa-tags"></i>@Model.Job_title</a>
+                    </div>
+                    <div class="show-list col-sm-4">
+                        <!-- ad-meta -->
+                        <div class="ad-info col-sm-6">
+                            <div class="meta-content">
+                                <p>@Model.Job_type</p>
+                            </div>
+                        </div>
+                    </div><!-- ad-meta -->
+                </div><!-- item-info -->
+            </div><!-- ad-item -->
+        </div><!-- ad-profile -->
+
+        <div class="profile section">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="user-pro-section">
+                        <!-- profile-details -->
+                        <div class="profile-details section">
+                            <h2>Profile Details</h2>
+                            <!-- form -->
+
+                            <div class="form-group">
+                                <!-- preferences-settings -->
+                                <div class="preferences-settings section">
+                                    <h2>Job Description</h2>
+                                    <div class=" ">
+                                        <!-- ad-meta -->
+                                        <div class="ad-info col-sm-12">
+                                            <div class="meta-content">
+                                                <p>sdfjhkdkfg sdif sdifu osdif sidf osdifu osdifuosid </p>
+                                                <a href="#" class="btn" data-jobid="@Model.Job_details_id" data-empid="@Model.Employee_id" onclick="Apply($(this))">Apply</a>
+                                            </div>
+                                        </div>
+                                    </div><!-- ad-meta -->
+                                </div>
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>
+    function Apply(ctrl) {
+        debugger;
+        //var id = $(ctrl).data("favid");
+        var empid = $(ctrl).attr("data-empid");
+        var jobid = $(ctrl).attr("data-jobid");
+        var DTO = JSON.stringify({
+            "Employee_id": parseInt(empid),
+            "Jobs_details_id": parseInt(jobid),
+        })
+
+        $.ajax({
+            type: "POST",
+            url: "/Jobs/ApplyJobs",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: DTO,
+            cache: false,
+            success: function (data) {
+                if (data.success) {
+                    debugger;
+                    if (data.message == "S")
+                    {
+                        window.location.href = "/Home/Success";
+                    }
+                    if (data.message == "F") {
+                        window.location.href = "/Home/Error";
+                    }
+                    //$(ctrl).html(data.Model);
+                    if(data.message=="NA")
+                    {
+                        window.location.href = "/Home/Login";
+                    }
+                }
+
+                
+            },
+            error: OnErrorBookingBlock
+        });
+
+        //alert(id);
+    }
+    function OnErrorBookingBlock()
+    {
+     alert("Test");
+    }
+</script>

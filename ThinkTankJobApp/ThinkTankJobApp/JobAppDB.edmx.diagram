@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7cea2e264d5248e2b5c0ddf514731477" Name="Diagram1">
+        <EntityTypeShape EntityType="JobAppDBModel.JobDetail" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="JobAppDBModel.tb_email_logs" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="JobAppDBModel.tb_email_templates" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="JobAppDBModel.tb_login_details" Width="1.5" PointX="3" PointY="1.375" />
+        <EntityTypeShape EntityType="JobAppDBModel.tb_logs" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="JobAppDBModel.tb_multiple_jobs" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="JobAppDBModel.tb_registered_users" Width="1.5" PointX="0.75" PointY="3.625" />
+        <EntityTypeShape EntityType="JobAppDBModel.tb_registered_users_registration_tokens" Width="1.5" PointX="3" PointY="5.25" />
+        <EntityTypeShape EntityType="JobAppDBModel.tb_registered_users_resetpasswordtokens" Width="1.5" PointX="3" PointY="8.75" />
+        <EntityTypeShape EntityType="JobAppDBModel.tb_smtp_settings" Width="1.5" PointX="9.75" PointY="3.75" />
+        <AssociationConnector Association="JobAppDBModel.FK_tb_login_details_tb_registered_users" />
+        <AssociationConnector Association="JobAppDBModel.FK_tb_registered_users_registration_tokens_tb_registered_users" />
+        <AssociationConnector Association="JobAppDBModel.FK_tb_registered_users_resetpasswordtokens_tb_registered_users" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

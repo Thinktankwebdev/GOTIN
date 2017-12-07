@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="main" class="clearfix published-page">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="congratulations">
+                    <i class="fa fa-exclamation-circle"></i>
+                    <h2 class="errorr">Error!</h2>
+                    <h4>@TempData["Error"].ToString();</h4>
+                </div>
+            </div>
+        </div><!-- row -->
+    </div><!-- container -->
+</section><!-- main -->

@@ -1,0 +1,74 @@
+﻿@{
+    bool emp = false;
+    if(Request.IsAuthenticated)
+    { 
+     emp = ThinkTankJobApp.Models.ServiceProviders.RegistrationProvider.GetEmployer(User.Identity.Name);
+    }
+}
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- navbar-header -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/Home/Index"><img class="img-responsive" src="/Content/images/rsz_2logo.jpg" alt="Logo"></a>
+        </div>
+        <!-- /navbar-header -->
+
+        <div class="navbar-left">
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/Home?Index">Home</a></li>
+                    <li><a href="/Home/AboutUs">About US</a></li>
+                    @if (Request.IsAuthenticated)
+                    { 
+                        if(emp)
+                        {
+                            <li><a href="/Jobs/PostJobs">PostJobs</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="/Jobs/Index">Jobs</a></li>
+                        }
+                    }
+                    else
+                    {
+                        <li><a href="/Jobs/Index">Jobs</a></li>
+                    }
+                    
+                    <li><a href="/Home/Contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- nav-right -->
+        <div class="nav-right">
+            <!-- language-dropdown -->
+            <!-- language-dropdown -->
+            <!-- sign-in -->
+            <ul class="sign-in">
+                <li><i class="fa fa-user"></i></li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li><a href="/Jobs/AppliedJobs">@User.Identity.Name</a></li>
+                    <li><a href="/Home/Logout">Logout</a></li>
+                }
+                else
+                {
+                    <li><a href="/Home/Login"> Sign In </a></li>
+                    <li><a href="/Home/Register">Register</a></li>
+                }
+            </ul><!-- sign-in -->
+            <br>
+                @if (!User.Identity.IsAuthenticated)
+                {
+            <a href="/Home/Login" class="btn">Are you an Employer?</a>
+                }
+        </div>
+        <!-- nav-right -->
+    </div><!-- container -->
+</nav><!-- navbar -->

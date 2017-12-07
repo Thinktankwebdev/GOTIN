@@ -1,0 +1,298 @@
+﻿@model ThinkTankJobApp.Models.RegisteredUser
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var title = new List<SelectListItem>();
+    title.Add(new SelectListItem() { Text = "Please Select Title", Value = "" });
+    title.Add(new SelectListItem() { Text = "Mr", Value = "Mr" });
+    title.Add(new SelectListItem() { Text = "Mrs", Value = "Mrs" });
+    title.Add(new SelectListItem() { Text = "Ms", Value = "Ms" });
+    title.Add(new SelectListItem() { Text = "Master", Value = "Master" });
+
+    var Gender = new List<SelectListItem>();
+    Gender.Add(new SelectListItem() { Text = "Please Select gender", Value = "" });
+    Gender.Add(new SelectListItem() { Text = "Male", Value = "Male" });
+    Gender.Add(new SelectListItem() { Text = "Female", Value = "Female" });
+    
+    var Cities = new List<SelectListItem>();
+    Cities.Add(new SelectListItem() { Text = "Please Select Cities", Value = "" });
+    Cities.Add(new SelectListItem() { Text = "Boston", Value = "Boston" });
+    Cities.Add(new SelectListItem() { Text = "Brockton", Value = "Brockton" });
+    Cities.Add(new SelectListItem() { Text = "Lawrence", Value = "Lawrence" });
+    Cities.Add(new SelectListItem() { Text = "Medford", Value = "Medford" });
+    Cities.Add(new SelectListItem() { Text = "Quincy", Value = "Quincy" });
+    Cities.Add(new SelectListItem() { Text = "Lowell", Value = "Lowell" });
+    Cities.Add(new SelectListItem() { Text = "Cambridge", Value = "Cambridge" });
+    Cities.Add(new SelectListItem() { Text = "Needham", Value = "Needham" });
+    Cities.Add(new SelectListItem() { Text = "Newton", Value = "Newton" });
+}
+<link href="~/Content/js/PasswordStrength/PasswordStrength.css" rel="stylesheet" />
+<script src="~/Content/js/PasswordStrength/password-strength.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+<section id="submain" class="clearfix user-page">
+    <div class="container">
+        <div class="row text-center">
+            <!-- user-login -->
+            <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+                <div class="user-account">
+
+                    <h2>Create a @("GotIn Account")</h2>
+                    <div class="alert alert-success col-md-12" style="display: none;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Success!</strong> <div class="col-md-12" id="successMsg">This alert box could indicate a dangerous or potentially negative action.</div>
+                    </div>
+                    <div class="alert alert-info col-md-12" style="display: none;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Info!</strong> This alert box could indicate a neutral informative change or action.
+                    </div>
+                    <div class="alert alert-warning col-md-12" style="display: none;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Warning!</strong> <div class="col-md-12" id="WarningMsg">This alert box could indicate a dangerous or potentially negative action.</div>
+                    </div>
+                    <div class="alert alert-danger col-md-12" style="display: none;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Danger!</strong> <div class="col-md-12" id="dangerMsg">This alert box could indicate a dangerous or potentially negative action.</div>
+                    </div>
+                    @using (Ajax.BeginForm("Registration", "Home", null, new AjaxOptions() { HttpMethod = "POST", LoadingElementId = "progress-indicator", OnSuccess = "register_success", OnBegin = "AjaxBeginRegister", OnFailure = "AjaxFailureRegister" }, new { id = "frmregistration", role = "form", data_parsley_validate = "true" }))
+                    {
+
+                        @Html.AntiForgeryToken()
+                        <div class="col-md-12">
+                            <div class="form-group col-sm-6">
+                                @Html.DropDownListFor(m => m.Title, title, new { @placeholder = "Title", @class = "form-control", data_parsley_required = "true", data_parsley_pattern = "[a-zA-Z0-9]+$", data_parsley_trigger = "change keypress keyup focusout", data_parsley_required_message = "Please Enter Title", ID = "Texttitle" })
+                            </div>
+                            <div class="form-group col-sm-6">
+                                @Html.TextBoxFor(m => m.First_name, new { @placeholder = "First Name", @class = "form-control", data_parsley_required = "true", data_parsley_pattern = "[a-zA-Z0-9]+$", data_parsley_trigger = "change keypress keyup focusout", data_parsley_required_message = "Please Enter First Name", ID = "TextFName" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group col-sm-6">
+
+                                @Html.TextBoxFor(m => m.Middle_name, new { @placeholder = "Middle Name", @class = "form-control", data_parsley_pattern = "[a-zA-Z0-9]+$", data_parsley_trigger = "change keypress keyup focusout", data_parsley_required_message = "Please Enter Middle Name", ID = "TextMName" })
+
+                            </div>
+                            <div class="form-group col-sm-6">
+
+                                @Html.TextBoxFor(m => m.Last_name, new { @placeholder = "Last Name", @class = "form-control", data_parsley_pattern = "[a-zA-Z0-9]+$", data_parsley_trigger = "change keypress keyup focusout", data_parsley_required_message = "Please Enter Last Name", ID = "TextLName" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group col-sm-12">
+                                @Html.TextBoxFor(m => m.Username, new { @placeholder = "Email", @class = "form-control", data_parsley_required = "true", data_parsley_type = "email", data_parsley_trigger = "change keypress keyup focusout", data_parsley_required_message = "Please enter email", id = "Uname" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group col-sm-6 " id="pwd-container">
+
+                                @Html.TextBoxFor(m => m.Password, new { @placeholder = "Password", @class = "form-control", data_parsley_required = "true", data_parsley_trigger = "change keypress keyup focusout", data_parsley_required_message = "Please enter password", @type = "password", id = "Pword", minlength = "6" })
+                                <div id="progress"></div>
+
+                            </div>
+                            <div class="form-group col-sm-6">
+                                @Html.TextBoxFor(m => m.Password, new { @class = "form-control", type = "password", id = "ConfirmPword", placeholder = "Confirm Password", data_parsley_required = "true", data_parsley_trigger = "change keypress keyup focusout", data_parsley_required_message = "Enter Confirm Password", data_parsley_equalto = "#Pword", data_parsley_equalto_message = "Password Mismatch", minlength = "6" })
+                                <div id="parsley_error_Email"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <div class="form-group col-sm-12">
+                                @Html.DropDownListFor(m => m.Gender, Gender, new { @placeholder = "Gender", @class = "form-control", data_parsley_required = "true", data_parsley_pattern = "[a-zA-Z0-9]+$", data_parsley_trigger = "change keypress keyup focusout", data_parsley_required_message = "Please Enter gender", ID = "TextGender" })
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group col-sm-12">
+                                @Html.DropDownListFor(m => m.City, Cities, new { @placeholder = "City", @class = "form-control", data_parsley_required = "true", data_parsley_trigger = "change keypress keyup focusout", data_parsley_required_message = "Please Enter City", ID = "TextCity" })
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group col-sm-12">
+
+                                @Html.TextAreaFor(m => m.Address, new { @class = "form-control", id = "Address", placeholder = "Address", data_parsley_required = "true", data_parsley_trigger = "change keypress keyup focusout", data_parsley_required_message = "Enter the Address", minlength = "10" })
+                            </div>
+                        </div>
+
+                        <!-- select -->
+                        <div class="col-md-12">
+                            <div class="form-group col-sm-3">
+                                @Html.TextBoxFor(m => m.Mbile_country_code, new { @placeholder = "+1", @class = "form-control", id = "demo", @disabled = "disabled"})
+                            </div>
+
+                            <div class="form-group col-sm-5">
+                                @Html.TextBoxFor(m => m.Mobile_number, new { @placeholder = "Mobile No", @class = "form-control", data_parsley_required = "true", data_parsley_type = "number", data_parsley_trigger = "change keypress keyup focusout", data_parsley_required_message = "Please enter Number", id = "demo" })
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <div class="form-group">
+                                    <div class="input-group" id="datetimepicker1">
+                                        @Html.TextBoxFor(m => m.Dob, new { @class = "form-control date", size = "16", id = "single_cal1", @data_parsley_required = "true", data_parsley_trigger = "change keypress keyup focusout", data_parsley_required_message = "DOB is required", data_parsley_errors_container = "#parsley_dob", @placeholder = "dd/mm/yyyy" })
+                                        
+                                        @*<input type="text" class="form-control has-feedback-left" id="single_cal1" placeholder="" aria-describedby="inputSuccess2Status">*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <div class="form-group col-sm-12">
+                                <div class="checkbox">
+                                    <label class="pull-left" for="signing">
+                                        
+                                    <input type="checkbox" name="isEmployer" id="signing" value="@Model.isEmployer"> Are you an Employer? </label>
+                                </div><!-- checkbox -->
+                            </div>
+                        </div>
+                        <button type="button" id="btnSave" class="btn btn-lg" data-size="xs">Registration</button>
+                    }
+                    <!-- checkbox -->
+
+                </div>
+            </div><!-- user-login -->
+        </div><!-- row -->
+    </div><!-- container -->
+</section><!-- signup-page -->
+<script type="text/javascript">
+    $(function () {
+
+        var options = {
+            onKeyUp: function (evt) {
+                if ($('#Pword').val().length > 0) {
+                    $('.password-verdict').fadeIn();
+                    $('.strength_').fadeIn();
+                    $(".password-verdict").css("display", "inline-block");
+                    $(".password-verdict").css("margin-top", "5px");
+                } else {
+                    $('.password-verdict').fadeOut();
+                    $('.strength_').fadeOut();
+                }
+                $(evt.target).pwstrength("outputErrorList");
+            }
+        };
+
+        $('#Pword').pwstrength(options);
+
+
+
+    })
+
+</script>
+<script>
+    $(function () {
+        $('#signing').change(function () {
+            cb = $(this);
+            cb.val(cb.prop('checked'));
+        });
+        var bindDatePicker = function () {
+            $(".date").datetimepicker({
+                format: 'MM-DD-YYYY',
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                }
+            }).find('input:first').on("blur", function () {
+                // check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
+                // update the format if it's yyyy-mm-dd
+                var date = parseDate($(this).val());
+
+                if (!isValidDate(date)) {
+                    //create date based on momentjs (we have that)
+                    date = moment().format('YYYY-MM-DD');
+                }
+
+                $(this).val(date);
+            });
+        }
+
+        var isValidDate = function (value, format) {
+            format = format || false;
+            // lets parse the date to the best of our knowledge
+            if (format) {
+                value = parseDate(value);
+            }
+
+            var timestamp = Date.parse(value);
+
+            return isNaN(timestamp) == false;
+        }
+
+        var parseDate = function (value) {
+            var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
+            if (m)
+                value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
+
+            return value;
+        }
+
+        bindDatePicker();
+    });
+</script>
+<script type="text/javascript">
+
+
+    $("#btnSave").click(function () {
+       
+        var ParsleyInstance = $("#frmregistration").parsley();
+        $("#frmregistration").parsley().validate();
+        if (ParsleyInstance.isValid()) {
+            //alert("success");
+            $("#frmregistration").submit();
+        }
+        else {
+            return false;
+        }
+
+    })
+
+    function register_success(data) {
+
+        if (data.success == true) {
+            location.href = '/Home/Success';
+        }
+        else if (data.success == false) {
+
+            if (((data.message.substr(0, 1)) == 'F') || ((data.message.substr(0, 1)) == 'C')) {
+                $('#dangerMsg').html(data.message.substr(2))
+                $('.alert-danger').show();
+
+                setTimeout(function () {
+                    $('.alert-danger').hide();
+                }, 6000);
+            }
+            else {
+                $('#WarningMsg').html(data.message.substr(2))
+                $('.alert-warning').show();
+
+                setTimeout(function () {
+                    $('.alert-warning').hide();
+                }, 6000);
+            }
+            $('html,body').animate({ scrollTop: 0 }, 'slow');
+            var l = Ladda.create(document.getElementById('btnSave'));
+            l.stop();
+            setTimeout(function () {
+                HideContent()
+            }, 20000);
+        }
+
+    }
+
+    function AjaxBeginRegister() {
+
+        var l = Ladda.create(document.getElementById('btnSave'));
+        l.start();
+    }
+
+    function AjaxFailureRegister() {
+        var l = Ladda.create(document.getElementById('btnSave'));
+        l.stop();
+    }
+
+</script>

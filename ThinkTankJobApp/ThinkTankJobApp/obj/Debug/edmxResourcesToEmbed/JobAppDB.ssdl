@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JobAppDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="JobDetails">
+    <Key>
+      <PropertyRef Name="job_details_id" />
+    </Key>
+    <Property Name="job_details_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="job_title" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="job_description" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="job_type" Type="varchar" MaxLength="50" />
+    <Property Name="job_city" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="job_organization" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="job_date" Type="datetime" Nullable="false" />
+    <Property Name="job_img" Type="varchar" MaxLength="150" />
+    <Property Name="jo_date_modified" Type="datetime" />
+    <Property Name="is_active" Type="bit" Nullable="false" />
+    <Property Name="job_applied_date" Type="datetime" />
+    <Property Name="employee_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_email_logs">
+    <Key>
+      <PropertyRef Name="email_log_id" />
+    </Key>
+    <Property Name="email_log_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="to" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="cc" Type="nvarchar(max)" />
+    <Property Name="created" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="subject" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="has_attachement" Type="bit" Nullable="false" />
+    <Property Name="error" Type="nvarchar(max)" />
+    <Property Name="log_entered_date" Type="datetime" />
+    <Property Name="user_identifier" Type="nvarchar" MaxLength="150" />
+    <Property Name="attachment_path" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tb_email_templates">
+    <Key>
+      <PropertyRef Name="email_template_id" />
+    </Key>
+    <Property Name="email_template_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="subject" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="modified_on" Type="datetime" Nullable="false" />
+    <Property Name="for" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="languagecode" Type="nvarchar" MaxLength="4" />
+    <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="short_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="sms_content" Type="nvarchar" MaxLength="400" />
+    <Property Name="status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_login_details">
+    <Key>
+      <PropertyRef Name="login_detail_id" />
+    </Key>
+    <Property Name="login_detail_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="last_login" Type="datetime" />
+    <Property Name="registered_on" Type="datetime" />
+    <Property Name="created_on" Type="datetime" Nullable="false" />
+    <Property Name="modified_on" Type="datetime" />
+    <Property Name="login_failed_count" Type="smallint" />
+    <Property Name="login_locked" Type="bit" />
+    <Property Name="last_accessed_from" Type="nvarchar(max)" />
+    <Property Name="last_used_token" Type="nvarchar(max)" />
+    <Property Name="registered_user_id" Type="bigint" />
+  </EntityType>
+  <EntityType Name="tb_logs">
+    <Key>
+      <PropertyRef Name="log_id" />
+    </Key>
+    <Property Name="log_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="short_description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="msg_function" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="msg_type" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="error_code" Type="nvarchar" MaxLength="10" />
+    <Property Name="error_description" Type="nvarchar(max)" />
+    <Property Name="transaction_ref_id" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="function_name" Type="nvarchar" MaxLength="400" />
+    <Property Name="stack_trace" Type="nvarchar(max)" />
+    <Property Name="trace_data" Type="nvarchar(max)" />
+    <Property Name="user_Identifier" Type="nvarchar" MaxLength="150" />
+    <Property Name="ipaddress" Type="nvarchar" MaxLength="550" />
+    <Property Name="created_on" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_multiple_jobs">
+    <Key>
+      <PropertyRef Name="multiple_jobs_id" />
+    </Key>
+    <Property Name="multiple_jobs_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="registered_user_id" Type="bigint" Nullable="false" />
+    <Property Name="employee_id" Type="bigint" Nullable="false" />
+    <Property Name="applied_date" Type="datetime" Nullable="false" />
+    <Property Name="jobs_details_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_registered_users">
+    <Key>
+      <PropertyRef Name="registered_user_id" />
+    </Key>
+    <Property Name="registered_user_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="first_name" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="last_name" Type="nvarchar" MaxLength="24" Nullable="false" />
+    <Property Name="middle_name" Type="nvarchar" MaxLength="24" />
+    <Property Name="dob" Type="datetime" />
+    <Property Name="username" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="password" Type="nvarchar(max)" />
+    <Property Name="email_address" Type="nvarchar" MaxLength="150" />
+    <Property Name="gender" Type="nvarchar" MaxLength="6" />
+    <Property Name="mobile_country_code" Type="nchar" MaxLength="10" />
+    <Property Name="mobile_number" Type="nvarchar" MaxLength="35" />
+    <Property Name="registred_on" Type="datetime" Nullable="false" />
+    <Property Name="registration_ip" Type="nvarchar(max)" />
+    <Property Name="is_active" Type="bit" Nullable="false" />
+    <Property Name="Country" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Province" Type="varchar" MaxLength="250" />
+    <Property Name="isEmployer" Type="bit" />
+    <Property Name="Organization" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tb_registered_users_registration_tokens">
+    <Key>
+      <PropertyRef Name="registration_token_id" />
+    </Key>
+    <Property Name="registration_token_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="registration_link" Type="nvarchar" MaxLength="650" Nullable="false" />
+    <Property Name="origin_ip" Type="nvarchar" MaxLength="650" Nullable="false" />
+    <Property Name="expired_on" Type="datetime" Nullable="false" />
+    <Property Name="created_on" Type="datetime" Nullable="false" />
+    <Property Name="used_on" Type="datetime" />
+    <Property Name="used_on_ip" Type="nvarchar" MaxLength="650" />
+    <Property Name="registered_user_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_registered_users_resetpasswordtokens">
+    <Key>
+      <PropertyRef Name="password_token_id" />
+    </Key>
+    <Property Name="password_token_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="registered_user_id" Type="bigint" Nullable="false" />
+    <Property Name="password_token" Type="nvarchar" MaxLength="950" Nullable="false" />
+    <Property Name="created_on" Type="datetime" Nullable="false" />
+    <Property Name="ip_origin" Type="nvarchar" MaxLength="350" Nullable="false" />
+    <Property Name="is_active" Type="bit" Nullable="false" />
+    <Property Name="expires_on" Type="datetime" Nullable="false" />
+    <Property Name="used_on_origin" Type="nvarchar" MaxLength="350" />
+    <Property Name="used_datetime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tb_smtp_settings">
+    <Key>
+      <PropertyRef Name="smtp_setting_id" />
+    </Key>
+    <Property Name="smtp_setting_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="port" Type="int" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="200" />
+    <Property Name="password" Type="nvarchar" MaxLength="500" />
+    <Property Name="use_anonymous" Type="bit" Nullable="false" />
+    <Property Name="active" Type="bit" Nullable="false" />
+    <Property Name="from_address" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="smtp_type" Type="int" Nullable="false" />
+    <Property Name="last_modified_on" Type="datetime" Nullable="false" />
+    <Property Name="last_modified_by" Type="nvarchar" MaxLength="350" />
+    <Property Name="status" Type="bit" Nullable="false" />
+    <Property Name="use_https" Type="bit" />
+  </EntityType>
+  <Association Name="FK_tb_login_details_tb_registered_users">
+    <End Role="tb_registered_users" Type="Self.tb_registered_users" Multiplicity="0..1" />
+    <End Role="tb_login_details" Type="Self.tb_login_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_registered_users">
+        <PropertyRef Name="registered_user_id" />
+      </Principal>
+      <Dependent Role="tb_login_details">
+        <PropertyRef Name="registered_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_registered_users_registration_tokens_tb_registered_users">
+    <End Role="tb_registered_users" Type="Self.tb_registered_users" Multiplicity="1" />
+    <End Role="tb_registered_users_registration_tokens" Type="Self.tb_registered_users_registration_tokens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_registered_users">
+        <PropertyRef Name="registered_user_id" />
+      </Principal>
+      <Dependent Role="tb_registered_users_registration_tokens">
+        <PropertyRef Name="registered_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_registered_users_resetpasswordtokens_tb_registered_users">
+    <End Role="tb_registered_users" Type="Self.tb_registered_users" Multiplicity="1" />
+    <End Role="tb_registered_users_resetpasswordtokens" Type="Self.tb_registered_users_resetpasswordtokens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_registered_users">
+        <PropertyRef Name="registered_user_id" />
+      </Principal>
+      <Dependent Role="tb_registered_users_resetpasswordtokens">
+        <PropertyRef Name="registered_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="proc_GetEmailTemplate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="type" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="proc_LoginCheckPoint" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ip_address" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ip_country" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="proc_LoginFailed" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user_name" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="proc_registrationConfirmation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="registration_link" Type="nvarchar" Mode="In" />
+    <Parameter Name="used_on_ip" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="proc_ResetPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="password_token" Type="nvarchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+    <Parameter Name="used_on_origin" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="proc_UpdatePasswordRegToken" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dbop" Type="char" Mode="In" />
+    <Parameter Name="registered_user_id" Type="bigint" Mode="In" />
+    <Parameter Name="password_token" Type="nvarchar" Mode="In" />
+    <Parameter Name="ip_origin" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="used_on_origin" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <EntityContainer Name="JobAppDBModelStoreContainer">
+    <EntitySet Name="JobDetails" EntityType="Self.JobDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_email_logs" EntityType="Self.tb_email_logs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_email_templates" EntityType="Self.tb_email_templates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_login_details" EntityType="Self.tb_login_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_logs" EntityType="Self.tb_logs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_multiple_jobs" EntityType="Self.tb_multiple_jobs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_registered_users" EntityType="Self.tb_registered_users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_registered_users_registration_tokens" EntityType="Self.tb_registered_users_registration_tokens" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_registered_users_resetpasswordtokens" EntityType="Self.tb_registered_users_resetpasswordtokens" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_smtp_settings" EntityType="Self.tb_smtp_settings" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tb_login_details_tb_registered_users" Association="Self.FK_tb_login_details_tb_registered_users">
+      <End Role="tb_registered_users" EntitySet="tb_registered_users" />
+      <End Role="tb_login_details" EntitySet="tb_login_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_registered_users_registration_tokens_tb_registered_users" Association="Self.FK_tb_registered_users_registration_tokens_tb_registered_users">
+      <End Role="tb_registered_users" EntitySet="tb_registered_users" />
+      <End Role="tb_registered_users_registration_tokens" EntitySet="tb_registered_users_registration_tokens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_registered_users_resetpasswordtokens_tb_registered_users" Association="Self.FK_tb_registered_users_resetpasswordtokens_tb_registered_users">
+      <End Role="tb_registered_users" EntitySet="tb_registered_users" />
+      <End Role="tb_registered_users_resetpasswordtokens" EntitySet="tb_registered_users_resetpasswordtokens" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

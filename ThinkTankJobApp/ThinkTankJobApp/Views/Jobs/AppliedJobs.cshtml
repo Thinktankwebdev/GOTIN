@@ -1,0 +1,54 @@
+﻿@model PagedList.IPagedList<ThinkTankJobApp.Models.JobDetailsModel>
+@using PagedList.Mvc; 
+@{
+    ViewBag.Title = "AppliedJobs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="main" class="clearfix category-page main-categories">
+    <div class="container">
+        <div class="category-info">
+            <div class="row">
+                <!-- accordion-->
+                <div class="col-sm-12">
+                    <div class="accordion">
+                        <!-- panel-group -->
+                        <div class="panel-group" id="accordion">
+
+
+                        </div><!-- panel-group -->
+                    </div>
+                </div><!-- accordion-->
+                <!-- recommended-ads -->
+                <div class="col-sm-12">
+                    <div class="section recommended-ads">
+                        <!-- featured-top -->
+                        <div class="featured-top">
+                            <h4>Job Listings</h4>
+                            <div class="dropdown pull-right">
+
+                                <!-- category-change -->
+                                <div class="dropdown category-dropdown">
+                                    <h5>Sort by:</h5>
+                                    <a data-toggle="dropdown" href="#"><span class="change-text">Popular</span><i class="fa fa-caret-square-o-down"></i></a>
+                                    <ul class="dropdown-menu category-change">
+                                        <li><a href="#">Featured</a></li>
+                                        <li><a href="#">Newest</a></li>
+                                        <li><a href="#">All</a></li>
+                                        <li><a href="#">Bestselling</a></li>
+                                    </ul>
+                                </div><!-- category-change -->
+                            </div>
+                        </div><!-- featured-top -->
+                        <!-- ad-item -->
+                        <div id="ListService">
+                            @* @{Html.RenderAction("ListofServices", "Category");}*@
+                            @Html.Partial("_Employers", Model)
+                        </div>
+                    </div>
+                </div><!-- recommended-ads -->
+
+            </div><!-- container -->
+        </div>
+    </div>
+</section><!-- main -->

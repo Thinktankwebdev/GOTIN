@@ -1,0 +1,157 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<section id="services-ad" class="clearfix home-three">
+    <!-- view-ad -->
+    <div id="home-section" class="parallax-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="text-banner">
+                        <h2>
+                            GoTIN</h2>
+                            <h2>Massachussets No.1 Job website.</h2>
+                    </div>
+                    <div class="ad-btn">
+
+                        <a href="/Home/Login" target="_blank" class="btn">
+                            Please Login to Act.
+                        </a>
+                       
+                    </div>
+                </div>
+
+            </div><!-- row -->
+        </div><!-- contaioner -->
+    </div><!-- view-ad -->
+    <div class="container">
+        <div class="row">
+            <!-- banner -->
+            <div class="col-sm-12">
+                <div class="banner">
+                    <!-- banner-form -->
+                    <div class="banner-form banner-form-full">
+                        <form action="categories.html">
+                            <!-- category-change -->
+                            <!-- language-dropdown -->
+                            <div id="mainsearch">
+                                @{Html.RenderAction("SearchJobs", "Home");}
+                            </div>
+                        </form>
+                    </div><!-- banner-form -->
+                </div>
+            </div><!-- banner -->
+        </div><!-- row -->
+    </div><!-- container -->
+</section><!-- services-ad -->
+
+
+
+<section class=" white-block">
+    <div class="container">
+        <div class="block-head text-center">
+            <h2 class="font-medium margin-muted">How it works</h2>
+            <span></span>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 col-sm-11 col-sm-offset-1">
+                <div class="col-md-2 col-sm-12 text-center"></div>
+                <div class="col-md-2 col-sm-3 text-center">
+                    <img src="/Content/images/ico-book.svg" width="50">
+                    <h4 class="font-medium">Register</h4>
+                    Share your need and information with us.
+                </div>
+                <div class="col-md-1 col-sm-1 text-center">
+                    <img src="/Content/images/ico-arrow.svg" width="35">
+                </div>
+                <div class="col-md-2 col-sm-3 text-center">
+                    <img src="/Content/images/ico-schedule.svg" width="50">
+                    <h4 class="font-medium">SignIn</h4>
+                    Search for the Jobs you like
+                </div>
+                <div class="col-md-1 col-sm-1 text-center">
+                    <img src="/Content/images/ico-arrow.svg" width="35">
+                </div>
+                <div class="col-md-2 col-sm-3 text-center">
+                    <img src="/Content/images/ico-relax.svg" width="50">
+                    <h4 class="font-medium">Relax</h4>
+                    Wait till your Resumes get seen by an Employer
+                </div>
+                <div class="col-md-2 col-sm-12 text-center"></div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <p class="intro-text">
+                At GoTIN, we provide services only for MA to get the jobs for the people Just SignIn to apply.
+            </p>
+
+            <br><br>
+        </div>
+    </div>
+</section>
+
+
+<section id="aboutushome" class="clearfix parallax-section">
+    <div class="container">
+        <div class="block-head text-center">
+            <h2 class="font-medium margin-muted"> Our Services</h2>
+            <span></span>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="text-align:center;">
+                <p>
+                    We'll make sure you present yourself in the best light to recruiters. Easily check your current resume with our automated reviewer. Use the simple resume builder to create a new resume or make quick improvements..
+                </p>
+            </div>
+        </div>
+        <br>
+
+    </div>
+</section>
+
+<section class="white-block testimonails-blk">
+    <div class="container">
+        <div class="block-head text-center">
+            <h2 class="font-medium margin-muted"> Testimonials</h2>
+            <span></span>
+        </div>
+        <div class="row text-center">
+            <section id="carousel">
+                <div class="row">
+                    <div class="col-md-2">&nbsp;</div>
+                    <div class="col-md-8">
+                        <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" data-interval="3000">
+                            <!-- Carousel indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#fade-quote-carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#fade-quote-carousel" data-slide-to="1"></li>
+                            </ol>
+                            <!-- Carousel items -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="profile-circle" style="background-color: rgba(0,0,0,.2);">
+                                        <img src="/Content/images/testi.jpg" alt="" class="img-respocive">
+                                    </div>
+                                    <blockquote>
+                                        <p>I wouldn't use any other job finding site. Great customer service and better than most. Also, it rates number one in job finding sites.</p>
+                                    </blockquote>
+                                </div>
+
+                                <div class="item">
+                                    <div class="profile-circle" style="background-color: rgba(0,0,0,.2);">
+                                        <img src="/Content/images/testi.jpg" alt="" class="img-respocive">
+                                    </div>
+                                    <blockquote>
+                                        <p>I run a small recruiting company and recently signed up for an expensive, one-year contract based upon a mixed, but occasionally positive experience I had with the company some years ago. Unfortunately, Monster.com's current level of advertising results and customer service is a pale shadow of what it was in the past. Most of our postings get very few resumes, period, and when resumes come in, they are very often of unqualified candidates. Some of the "resumes," in fact, are often one or two lines long!</p>
+                                    </blockquote>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">&nbsp;</div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>

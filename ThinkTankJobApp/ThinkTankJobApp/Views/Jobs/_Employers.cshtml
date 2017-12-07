@@ -1,0 +1,67 @@
+﻿@model PagedList.IPagedList<ThinkTankJobApp.Models.JobDetailsModel>
+@using PagedList.Mvc; 
+
+@if (Model != null && Model.Count > 0)
+{
+ foreach(var item in Model)
+ {    
+<div class="ad-item row">
+
+    <!-- rending-text -->
+    <div class="item-info col-sm-12">
+        <!-- ad-info -->
+
+        <div class="ad-info col-sm-3">
+            <h4 class="item-title"><a href="#">@item.Job_organization</a></h4>
+            <div class="item-cat">
+                <a href="#" class="tag"><i class="fa fa-tags"></i>@item.Job_title</a>
+            </div>
+        </div><!-- ad-info -->
+        <div class="ad-info col-sm-3">
+            <p>@item.Job_description.Substring(1,50)</p>
+        </div>
+        <div class="ad-info col-sm-3">
+            <p>@item.Job_type</p>
+        </div>
+        <div class="show-list col-sm-3">
+            <!-- ad-meta -->
+            <div class="ad-info col-sm-6">
+                <div class="meta-content">
+                    <a href="#" class="btn" id="btn-view" data-id="@item.Job_details_id" onclick="DetailsService($(this))">View</a>
+                </div>
+            </div>
+        </div><!-- ad-meta -->
+    </div><!-- item-info -->
+</div><!-- ad-item -->
+ }
+}
+<!-- pagination  -->
+<div class="text-center">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    of @Model.PageCount
+    <ul class="pagination ">
+        @*<li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+            <li><a href="#">1</a></li>
+            <li class="active"><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">...</a></li>
+            <li><a href="#">10</a></li>
+            <li><a href="#">20</a></li>
+            <li><a href="#">30</a></li>
+            <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>*@
+        @Html.PagedListPager(Model, page => Url.Action("ListofServices", new { page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "ListService" }))
+
+
+    </ul>
+</div><!-- pagination  -->
+<script>
+    function DetailsService(ctrl) {
+        debugger;
+        var l = Ladda.create(document.getElementById('btn-view'));
+        l.start();
+        var serviceid = $(ctrl).data("id");
+        window.location.href = "/Jobs/Details?ID=" + serviceid;
+    }
+</script>

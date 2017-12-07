@@ -1,0 +1,1100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{18764590-139E-4B42-BC08-D10A82DB6101}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThinkTankJobApp</RootNamespace>
+    <AssemblyName>ThinkTankJobApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.30506.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.30506.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.30506.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.30506.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.30506.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.1.4.12333\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.4.0.30506\lib\net40\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.2.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Data.OData.5.2.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Spatial, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\WebMembershipProvider.cs" />
+    <Compile Include="JobAppDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JobAppDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobAppDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JobAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobAppDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JobAppDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="JobDetail.cs">
+      <DependentUpon>JobAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClsFunction.cs" />
+    <Compile Include="Models\EmailTemplate.cs" />
+    <Compile Include="Models\EmailTemplateModel.cs" />
+    <Compile Include="Models\ErrorProvider.cs" />
+    <Compile Include="Models\ForgotPasswordModel.cs" />
+    <Compile Include="Models\JobDetailsModel.cs" />
+    <Compile Include="Models\LoginCheckPointModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\MailContent.cs" />
+    <Compile Include="Models\Mailer.cs" />
+    <Compile Include="Models\MDD5.cs" />
+    <Compile Include="Models\MultipleJobsModel.cs" />
+    <Compile Include="Models\RegisteredUser.cs" />
+    <Compile Include="Models\ResetPasswordModel.cs" />
+    <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\ServiceContext\JobsContext.cs" />
+    <Compile Include="Models\ServiceContext\MailerContext.cs" />
+    <Compile Include="Models\ServiceContext\RegistrationContext.cs" />
+    <Compile Include="Models\ServiceProviders\JobsProvider.cs" />
+    <Compile Include="Models\ServiceProviders\RegistrationProvider.cs" />
+    <Compile Include="Models\ServiceProviders\SmtpProvider.cs" />
+    <Compile Include="Models\SmtpSettingModel.cs" />
+    <Compile Include="proc_GetEmailTemplate_Result.cs">
+      <DependentUpon>JobAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tb_email_logs.cs">
+      <DependentUpon>JobAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_email_templates.cs">
+      <DependentUpon>JobAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_login_details.cs">
+      <DependentUpon>JobAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_logs.cs">
+      <DependentUpon>JobAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_multiple_jobs.cs">
+      <DependentUpon>JobAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_registered_users.cs">
+      <DependentUpon>JobAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_registered_users_registration_tokens.cs">
+      <DependentUpon>JobAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_registered_users_resetpasswordtokens.cs">
+      <DependentUpon>JobAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_smtp_settings.cs">
+      <DependentUpon>JobAppDB.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\datepicker.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\fonts\devanagari-normal-webfont-2.html" />
+    <Content Include="Content\css\fonts\devanagari-normal-webfont-3.html" />
+    <Content Include="Content\css\fonts\devanagari-normal-webfont-4.html" />
+    <Content Include="Content\css\fonts\devanagari-normal-webfont-5.html" />
+    <Content Include="Content\css\fonts\devanagari-normal-webfont.html" />
+    <Content Include="Content\css\fonts\devanagari-normal-webfontd41d.html" />
+    <Content Include="Content\css\fonts\MyriadPro-Regular-2.html" />
+    <Content Include="Content\css\fonts\MyriadPro-Regular-3.html" />
+    <Content Include="Content\css\fonts\MyriadPro-Regular-4.html" />
+    <Content Include="Content\css\fonts\MyriadPro-Regular-5.html" />
+    <Content Include="Content\css\fonts\MyriadPro-Regular.html" />
+    <Content Include="Content\css\fonts\MyriadPro-Regulard41d.html" />
+    <Content Include="Content\css\icofont.css" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\owl.carousel.css" />
+    <Content Include="Content\css\owl.video.play.html" />
+    <Content Include="Content\css\password.css" />
+    <Content Include="Content\css\presets\preset1.css" />
+    <Content Include="Content\css\responsive.css" />
+    <Content Include="Content\css\slidr.css" />
+    <Content Include="Content\css\timepicki.css" />
+    <Content Include="Content\fonts\fontawesome-webfont3295.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\icofont4d84.svg" />
+    <Content Include="Content\images\1.jpg" />
+    <Content Include="Content\images\1.png" />
+    <Content Include="Content\images\about-us\1.jpg" />
+    <Content Include="Content\images\about-us\10.jpg" />
+    <Content Include="Content\images\about-us\11.jpg" />
+    <Content Include="Content\images\about-us\12.jpg" />
+    <Content Include="Content\images\about-us\2.jpg" />
+    <Content Include="Content\images\about-us\3.jpg" />
+    <Content Include="Content\images\about-us\4.jpg" />
+    <Content Include="Content\images\about-us\5.jpg" />
+    <Content Include="Content\images\about-us\6.jpg" />
+    <Content Include="Content\images\about-us\7.jpg" />
+    <Content Include="Content\images\about-us\8.jpg" />
+    <Content Include="Content\images\about-us\9.jpg" />
+    <Content Include="Content\images\aboutus.jpg" />
+    <Content Include="Content\images\appstore-btn.png" />
+    <Content Include="Content\images\arrow.png" />
+    <Content Include="Content\images\bg\aboutus.jpg" />
+    <Content Include="Content\images\bg\bos.jpg" />
+    <Content Include="Content\images\ico-arrow.svg" />
+    <Content Include="Content\images\ico-book.svg" />
+    <Content Include="Content\images\ico-book1.svg" />
+    <Content Include="Content\images\ico-quote.svg" />
+    <Content Include="Content\images\ico-relax.svg" />
+    <Content Include="Content\images\ico-relax1.svg" />
+    <Content Include="Content\images\ico-schedule.svg" />
+    <Content Include="Content\images\ico-schedule1.svg" />
+    <Content Include="Content\images\logo.jpeg" />
+    <Content Include="Content\images\mobile.png" />
+    <Content Include="Content\images\playstore-btn.png" />
+    <Content Include="Content\images\rsz_2logo.jpg" />
+    <Content Include="Content\images\rsz_logo.jpg" />
+    <Content Include="Content\images\testi.jpg" />
+    <Content Include="Content\images\top.png" />
+    <Content Include="Content\images\top_arr.png" />
+    <Content Include="Content\images\user.jpg" />
+    <Content Include="Content\images\wood.jpg" />
+    <Content Include="Content\js\bootstrap-datepicker.js" />
+    <Content Include="Content\js\bootstrap-daterangepicker\date.js" />
+    <Content Include="Content\js\bootstrap-daterangepicker\daterangepicker-bs3.css" />
+    <Content Include="Content\js\bootstrap-daterangepicker\daterangepicker.css" />
+    <Content Include="Content\js\bootstrap-daterangepicker\daterangepicker.js" />
+    <Content Include="Content\js\bootstrap-daterangepicker\examples.html" />
+    <Content Include="Content\js\bootstrap-daterangepicker\moment.js" />
+    <Content Include="Content\js\bootstrap-daterangepicker\moment.min.js" />
+    <Content Include="Content\js\bootstrap-notify.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\custom.js" />
+    <Content Include="Content\js\datepicker.js" />
+    <Content Include="Content\js\daterangepicker.js" />
+    <Content Include="Content\js\fadf.js" />
+    <Content Include="Content\js\jquery-2.0.2.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\ladda\ladda-themeless.min.css" />
+    <Content Include="Content\js\ladda\ladda.jquery.min.js" />
+    <Content Include="Content\js\ladda\ladda.min.css" />
+    <Content Include="Content\js\ladda\ladda.min.js" />
+    <Content Include="Content\js\ladda\spin.min.js" />
+    <Content Include="Content\js\modernizr.min.js" />
+    <Content Include="Content\js\moment.min.js" />
+    <Content Include="Content\js\owl.carousel.min.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\dist\parsley.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\dist\parsley.min.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\dist\parsley.remote.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\dist\parsley.remote.min.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\doc\assets\docs.css" />
+    <Content Include="Content\js\Parsley.js-2.0.7\doc\assets\docs.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\doc\assets\help.css" />
+    <Content Include="Content\js\Parsley.js-2.0.7\doc\download.html" />
+    <Content Include="Content\js\Parsley.js-2.0.7\doc\examples.html" />
+    <Content Include="Content\js\Parsley.js-2.0.7\doc\examples\customvalidator.html" />
+    <Content Include="Content\js\Parsley.js-2.0.7\doc\examples\events.html" />
+    <Content Include="Content\js\Parsley.js-2.0.7\doc\examples\multisteps.html" />
+    <Content Include="Content\js\Parsley.js-2.0.7\doc\examples\simple.html" />
+    <Content Include="Content\js\Parsley.js-2.0.7\doc\help.html" />
+    <Content Include="Content\js\Parsley.js-2.0.7\doc\index.html" />
+    <Content Include="Content\js\Parsley.js-2.0.7\doc\tests.html" />
+    <Content Include="Content\js\Parsley.js-2.0.7\Gruntfile.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\index.html" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\config.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\extra\plugin\bind.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\extra\plugin\remote.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\extra\validator\comparison.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\extra\validator\dateiso.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\extra\validator\luhn.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\extra\validator\words.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\ar.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\bg.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\cs.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\cs.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\da.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\de.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\de.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\en.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\en.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\es.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\fa.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\fi.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\fi.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\fr.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\fr.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\he.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\he.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\id.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\id.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\it.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\it.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\ja.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\ko.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\ms_MY.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\ms_MY.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\nl.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\nl.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\pl.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\pt-br.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\ru.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\ru.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\sv.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\sv.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\th.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\tr.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\zh_cn.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\zh_cn.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\i18n\zh_tw.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\main.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\parsley.css" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\parsley.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\parsley\abstract.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\parsley\defaults.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\parsley\factory\constraint.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\parsley\factory\options.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\parsley\field.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\parsley\form.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\parsley\multiple.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\parsley\pubsub.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\parsley\ui.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\parsley\utils.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\parsley\validator.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\wrap\append.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\src\wrap\prepend.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\config.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\dev.html" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\dev.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\env\amd.html" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\env\amd.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\env\browerify_bundle.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\env\browserify.html" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\env\browserify.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\env\browserify_bundle.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\features\abstract.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\features\extra.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\features\field.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\features\form.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\features\multiple.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\features\options.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\features\parsley.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\features\pubsub.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\features\remote.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\features\ui.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\features\utils.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\features\validator.js" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\index.html" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\standalone.html" />
+    <Content Include="Content\js\Parsley.js-2.0.7\test\tests.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\js\affix.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\js\alert.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\js\button.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\js\carousel.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\js\collapse.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\js\dropdown.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\js\modal.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\js\popover.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\js\scrollspy.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\js\tab.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\js\tooltip.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\js\transition.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\expect.js\index.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\expect.js\support\jquery.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\expect.js\test\common.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\expect.js\test\expect.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\expect.js\test\index.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\dist\jquery.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\dist\jquery.min.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\MIT-LICENSE.txt" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\ajax.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\ajax\jsonp.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\ajax\load.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\ajax\parseJSON.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\ajax\parseXML.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\ajax\script.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\ajax\var\nonce.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\ajax\var\rquery.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\ajax\xhr.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\attributes.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\attributes\attr.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\attributes\classes.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\attributes\prop.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\attributes\support.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\attributes\val.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\callbacks.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\core.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\core\access.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\core\init.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\core\parseHTML.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\core\ready.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\css.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\css\addGetHookIf.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\css\curCSS.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\css\defaultDisplay.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\css\support.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\css\swap.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\css\var\cssExpand.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\css\var\getStyles.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\css\var\isHidden.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\css\var\rmargin.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\data.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\data\accepts.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\data\Data.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\data\var\data_priv.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\data\var\data_user.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\deferred.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\deprecated.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\dimensions.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\effects.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\effects\animatedSelector.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\effects\Tween.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\event.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\event\ajax.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\event\alias.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\event\support.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\exports\amd.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\exports\global.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\intro.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\jquery.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\manipulation.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\manipulation\support.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\offset.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\outro.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\queue.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\queue\delay.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\selector-native.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\selector-sizzle.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\selector.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\serialize.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\sizzle\dist\sizzle.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\sizzle\dist\sizzle.min.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\traversing.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\traversing\findFilter.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\var\arr.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\var\class2type.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\var\concat.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\var\hasOwn.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\var\indexOf.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\var\pnum.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\var\push.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\var\rnotwhite.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\var\slice.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\var\strundefined.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\var\support.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\var\toString.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\wrap.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\mocha\media\logo.svg" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\mocha\mocha.css" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\mocha\mocha.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\sinonjs\sinon.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\uwidget\uwidget.css" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\uwidget\uwidget.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\al.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\ar.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\bg.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\ca.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\cs.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\cs.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\da.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\de.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\de.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\el.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\el.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\en.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\en.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\es.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\fa.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\fi.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\fi.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\fr.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\fr.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\he.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\he.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\hr.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\hr.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\id.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\id.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\it.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\it.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\ja.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\ko.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\lt.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\lv.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\lv.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\ms.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\ms.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\nl.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\nl.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\no.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\pl.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\pt-br.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\pt-pt.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\ro.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\ro.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\ru.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\ru.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\sq.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\sv.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\sv.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\th.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\tr.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\uk.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\uk.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\zh_cn.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\zh_cn.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\i18n\zh_tw.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\parsley.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\parsley.min.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\about.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\abstract.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\defaults.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\docco.css" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\factory.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\field.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\form.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\main.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\multiple.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\public\stylesheets\normalize.css" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\pubsub.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\remote.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\ui.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\utils.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\validator.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\validator_registry.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\assets\docs.css" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\assets\docs.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\assets\example.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\assets\help.css" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\download.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\examples.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\examples\custom-validator-events.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\examples\customvalidator.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\examples\events.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\examples\multisteps.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\examples\simple.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\help.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\index.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\tests.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\gulpfile.babel.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\index.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\extra\plugin\bind.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\extra\validator\comparison.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\extra\validator\dateiso.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\extra\validator\luhn.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\extra\validator\notequalto.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\extra\validator\words.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\header.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\al.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\ar.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\bg.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\ca.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\cs.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\cs.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\da.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\de.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\de.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\el.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\el.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\en.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\en.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\es.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\fa.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\fi.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\fi.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\fr.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\fr.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\he.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\he.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\hr.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\hr.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\id.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\id.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\it.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\it.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\ja.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\ko.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\lt.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\lv.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\lv.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\ms.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\ms.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\nl.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\nl.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\no.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\pl.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\pt-br.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\pt-pt.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\ro.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\ro.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\ru.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\ru.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\sq.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\sv.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\sv.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\th.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\tr.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\uk.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\uk.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\zh_cn.extra.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\zh_cn.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\i18n\zh_tw.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\parsley.css" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\parsley.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\parsley\abstract.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\parsley\defaults.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\parsley\factory.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\parsley\factory\constraint.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\parsley\field.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\parsley\form.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\parsley\main.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\parsley\multiple.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\parsley\pubsub.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\parsley\remote.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\parsley\ui.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\parsley\utils.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\parsley\validator.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\parsley\validator_registry.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\src\vendor\inputevent.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\runner.html" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\setup\browserify.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\setup\dom_leak_check.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\setup\expect_warning.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\setup\node.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\setup\setup.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\unit\abstract.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\unit\extra\bind.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\unit\extra\comparison.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\unit\extra\dateiso.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\unit\extra\words.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\unit\field.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\unit\form.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\unit\multiple.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\unit\parsley.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\unit\pubsub.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\unit\remote.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\unit\ui.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\unit\utils.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\unit\validator.js" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\unit\validator_registry.js" />
+    <Content Include="Content\js\password.js" />
+    <Content Include="Content\js\PasswordStrength\password-strength.js" />
+    <Content Include="Content\js\PasswordStrength\PasswordStrength.css" />
+    <Content Include="Content\js\PasswordStrength\pwstrength.js" />
+    <Content Include="Content\js\price-range.js" />
+    <Content Include="Content\js\script.js" />
+    <Content Include="Content\js\scrollup.min.js" />
+    <Content Include="Content\js\smoothscroll.min.js" />
+    <Content Include="Content\js\switcher.js" />
+    <Content Include="Content\js\timepicki.js" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\fonts\fontawesome-webfont3295.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont3295.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont3295.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont3295.woff2" />
+    <Content Include="Content\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Content\fonts\icofont4d84.eot" />
+    <Content Include="Content\fonts\icofont4d84.ttf" />
+    <Content Include="Content\fonts\icofont4d84.woff" />
+    <Content Include="Content\js\bootstrap-daterangepicker\daterange.zip" />
+    <Content Include="Content\js\bootstrap-daterangepicker\README.md" />
+    <Content Include="Content\js\Parsley.js-2.0.7\.gitignore" />
+    <Content Include="Content\js\Parsley.js-2.0.7\.travis.yml" />
+    <Content Include="Content\js\Parsley.js-2.0.7\bower.json" />
+    <Content Include="Content\js\Parsley.js-2.0.7\CHANGELOG.md" />
+    <Content Include="Content\js\Parsley.js-2.0.7\CONTRIBUTING.md" />
+    <Content Include="Content\js\Parsley.js-2.0.7\doc\assets\docs.less" />
+    <Content Include="Content\js\Parsley.js-2.0.7\doc\assets\help.less" />
+    <Content Include="Content\js\Parsley.js-2.0.7\LICENSE" />
+    <Content Include="Content\js\Parsley.js-2.0.7\package.json" />
+    <Content Include="Content\js\Parsley.js-2.0.7\README.md" />
+    <Content Include="Content\js\Parsley.js-2.0.7\UPGRADE-2.0.md" />
+    <Content Include="Content\js\Parsley.js-2.4.3\.babelrc" />
+    <Content Include="Content\js\Parsley.js-2.4.3\.editorconfig" />
+    <Content Include="Content\js\Parsley.js-2.4.3\.eslintrc" />
+    <Content Include="Content\js\Parsley.js-2.4.3\.github\ISSUE_TEMPLATE.md" />
+    <Content Include="Content\js\Parsley.js-2.4.3\.gitignore" />
+    <Content Include="Content\js\Parsley.js-2.4.3\.jscsrc" />
+    <Content Include="Content\js\Parsley.js-2.4.3\.travis.yml" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower.json" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\.bower.json" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\bower.json" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\DOCS-LICENSE" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\alerts.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\badges.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\bootstrap.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\breadcrumbs.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\button-groups.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\buttons.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\carousel.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\close.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\code.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\component-animations.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\dropdowns.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\forms.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\glyphicons.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\grid.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\input-groups.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\jumbotron.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\labels.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\list-group.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\media.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\mixins.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\modals.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\navbar.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\navs.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\normalize.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\pager.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\pagination.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\panels.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\popovers.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\print.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\progress-bars.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\responsive-utilities.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\scaffolding.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\tables.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\theme.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\thumbnails.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\tooltip.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\type.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\utilities.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\variables.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\less\wells.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\LICENSE" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\LICENSE-MIT" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\bootstrap\README.md" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\expect.js\.bower.json" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\expect.js\.gitignore" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\expect.js\.npmignore" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\expect.js\History.md" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\expect.js\Makefile" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\expect.js\package.json" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\expect.js\README.md" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\.bower.json" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\bower.json" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\dist\jquery.min.map" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\jquery\src\sizzle\dist\sizzle.min.map" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\mocha\.bower.json" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\mocha\.editorconfig" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\mocha\.eslintrc" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\mocha\.mailmap" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\mocha\bower.json" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\mocha\CONTRIBUTING.md" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\mocha\HISTORY.md" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\mocha\LICENSE" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\mocha\README.md" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\mocha\scripts\ensure-compatible-npm.sh" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\sinonjs\.bower.json" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\sinonjs\bower.json" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\sinonjs\README.md" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\uwidget\.bower.json" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\uwidget\bower.json" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\uwidget\LICENSE" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\uwidget\README.md" />
+    <Content Include="Content\js\Parsley.js-2.4.3\bower_components\uwidget\uwidget.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\CHANGELOG.md" />
+    <Content Include="Content\js\Parsley.js-2.4.3\CNAME" />
+    <Content Include="Content\js\Parsley.js-2.4.3\CONTRIBUTING.md" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\parsley.js.map" />
+    <Content Include="Content\js\Parsley.js-2.4.3\dist\parsley.min.js.map" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\public\fonts\aller-bold.eot" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\public\fonts\aller-bold.ttf" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\public\fonts\aller-bold.woff" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\public\fonts\aller-light.eot" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\public\fonts\aller-light.ttf" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\public\fonts\aller-light.woff" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\public\fonts\novecento-bold.eot" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\public\fonts\novecento-bold.ttf" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\annotated-source\public\fonts\novecento-bold.woff" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\assets\docs.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\doc\assets\help.less" />
+    <Content Include="Content\js\Parsley.js-2.4.3\LICENSE" />
+    <Content Include="Content\js\Parsley.js-2.4.3\package.json" />
+    <Content Include="Content\js\Parsley.js-2.4.3\README.md" />
+    <Content Include="Content\js\Parsley.js-2.4.3\test\.eslintrc" />
+    <Content Include="Content\js\Parsley.js-2.4.3\UPGRADE-2.0.md" />
+    <Content Include="Content\js\Parsley.js-2.4.3\UPGRADE-2.1.md" />
+    <Content Include="Content\js\Parsley.js-2.4.3\UPGRADE-2.2.md" />
+    <EntityDeploy Include="JobAppDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>JobAppDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="JobAppDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>JobAppDB.edmx</DependentUpon>
+      <LastGenOutput>JobAppDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="JobAppDB.edmx.diagram">
+      <DependentUpon>JobAppDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="JobAppDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>JobAppDB.edmx</DependentUpon>
+      <LastGenOutput>JobAppDB.cs</LastGenOutput>
+    </Content>
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.2.0.debug.js" />
+    <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\_head.cshtml" />
+    <Content Include="Views\Shared\_header.cshtml" />
+    <Content Include="Views\Shared\_footer.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\Success.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\ForgotPassword.cshtml" />
+    <Content Include="Views\Home\ResetPassword.cshtml" />
+    <Content Include="Views\Home\_SearchJobs.cshtml" />
+    <Content Include="Views\Jobs\PostJobs.cshtml" />
+    <Content Include="Views\Jobs\_MainSearchJobs.cshtml" />
+    <Content Include="Views\Jobs\Index.cshtml" />
+    <Content Include="Views\Jobs\_Employers.cshtml" />
+    <Content Include="Views\Jobs\Details.cshtml" />
+    <Content Include="Views\Jobs\AppliedJobs.cshtml" />
+    <Content Include="Views\Home\AboutUs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Filters\" />
+    <Folder Include="Views\Account\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49585</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49585/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

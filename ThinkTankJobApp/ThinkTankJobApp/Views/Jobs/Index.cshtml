@@ -1,0 +1,52 @@
+﻿@model PagedList.IPagedList<ThinkTankJobApp.Models.JobDetailsModel>
+@using PagedList.Mvc; 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- main -->
+<section id="main" class="clearfix category-page main-categories">
+    <div class="container">
+        <div class="banner">
+
+            <!-- banner-form -->
+            <div class="banner-form banner-form-full">
+                <form action="categories.html">
+                    @{Html.RenderAction("SearchJobsPost", "Jobs");}
+                </form>
+            </div><!-- banner-form -->
+        </div>
+
+        <div class="category-info">
+            <div class="row">
+                <!-- accordion-->
+                <div class="col-sm-12">
+                    <div class="accordion">
+                        <!-- panel-group -->
+                        <div class="panel-group" id="accordion">
+
+
+                        </div><!-- panel-group -->
+                    </div>
+                </div><!-- accordion-->
+                <!-- recommended-ads -->
+                <div class="col-sm-12">
+                    <div class="section recommended-ads">
+                        <!-- featured-top -->
+                        <div class="featured-top">
+                            <h4>Job Listings</h4>
+                            
+                        </div><!-- featured-top -->
+                        <!-- ad-item -->
+                        <div id="ListService">
+                            @* @{Html.RenderAction("ListofServices", "Category");}*@
+                            @Html.Partial("_Employers", Model)
+                        </div>
+                    </div>
+                </div><!-- recommended-ads -->
+
+            </div><!-- container -->
+            </div>
+        </div>
+    </section><!-- main -->

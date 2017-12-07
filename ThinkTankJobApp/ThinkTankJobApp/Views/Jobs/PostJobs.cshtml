@@ -1,0 +1,157 @@
+﻿@model ThinkTankJobApp.Models.JobDetailsModel
+@{
+    ViewBag.Title = "PostJobs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+  
+
+    var TYPE = new List<SelectListItem>();
+    TYPE.Add(new SelectListItem() { Text = "Please Select Job Type", Value = "" });
+    TYPE.Add(new SelectListItem() { Text = "Full-Time", Value = "Full-Time" });
+    TYPE.Add(new SelectListItem() { Text = "Intern", Value = "Intern" });
+    TYPE.Add(new SelectListItem() { Text = "Contract", Value = "Contract" });
+
+    var Cities = new List<SelectListItem>();
+    Cities.Add(new SelectListItem() { Text = "Please Select Cities", Value = "" });
+    Cities.Add(new SelectListItem() { Text = "Boston", Value = "Boston" });
+    Cities.Add(new SelectListItem() { Text = "Brockton", Value = "Brockton" });
+    Cities.Add(new SelectListItem() { Text = "Lawrence", Value = "Lawrence" });
+    Cities.Add(new SelectListItem() { Text = "Medford", Value = "Medford" });
+    Cities.Add(new SelectListItem() { Text = "Quincy", Value = "Quincy" });
+    Cities.Add(new SelectListItem() { Text = "Lowell", Value = "Lowell" });
+    Cities.Add(new SelectListItem() { Text = "Cambridge", Value = "Cambridge" });
+    Cities.Add(new SelectListItem() { Text = "Needham", Value = "Needham" });
+    Cities.Add(new SelectListItem() { Text = "Newton", Value = "Newton" });
+}
+<link href="~/Content/js/PasswordStrength/PasswordStrength.css" rel="stylesheet" />
+<script src="~/Content/js/PasswordStrength/password-strength.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+<section id="submain" class="clearfix user-page">
+    <div class="container">
+        <div class="row text-center">
+            <!-- user-login -->
+            <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+                <div class="user-account">
+
+                    <h2>Post a @("GotIn Job")</h2>
+                    <div class="alert alert-success col-md-12" style="display: none;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Success!</strong> <div class="col-md-12" id="successMsg">This alert box could indicate a dangerous or potentially negative action.</div>
+                    </div>
+                    <div class="alert alert-info col-md-12" style="display: none;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Info!</strong> This alert box could indicate a neutral informative change or action.
+                    </div>
+                    <div class="alert alert-warning col-md-12" style="display: none;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Warning!</strong> <div class="col-md-12" id="WarningMsg">This alert box could indicate a dangerous or potentially negative action.</div>
+                    </div>
+                    <div class="alert alert-danger col-md-12" style="display: none;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Danger!</strong> <div class="col-md-12" id="dangerMsg">This alert box could indicate a dangerous or potentially negative action.</div>
+                    </div>
+                    @using (Ajax.BeginForm("PostJobs", "Jobs", null, new AjaxOptions() { HttpMethod = "POST", LoadingElementId = "progress-indicator", OnSuccess = "post_success", OnBegin = "AjaxBeginPost", OnFailure = "AjaxFailurePost" }, new { id = "frmpost", role = "form", data_parsley_validate = "true" }))
+                    {
+
+                        @Html.AntiForgeryToken()
+                        <div class="col-md-12">
+                            <div class="form-group col-sm-6">
+                                @Html.TextBoxFor(m => m.Job_title,new { @placeholder = "Job Title", @class = "form-control", data_parsley_required = "true", data_parsley_trigger = "change keypress keyup focusout", data_parsley_required_message = "Please Enter Job Title", ID = "Texttitle" })
+                            </div>
+                            <div class="form-group col-sm-6">
+                                @Html.TextBoxFor(m => m.Job_organization, new { @placeholder = "Job Organization", @class = "form-control", data_parsley_required = "true", data_parsley_trigger = "change keypress keyup focusout", data_parsley_required_message = "Please Enter First Name", ID = "TextFName" })
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group col-sm-12">
+
+                                @Html.TextAreaFor(m => m.Job_description, new { @class = "form-control", id = "Address", placeholder = "Please Enter your description", data_parsley_required = "true", data_parsley_trigger = "change keypress keyup focusout", data_parsley_required_message = "Enter the Address", minlength = "10" })
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group col-sm-12">
+                                @Html.DropDownListFor(m => m.Job_city, Cities, new { @placeholder = "City", @class = "form-control", data_parsley_required = "true", data_parsley_trigger = "change keypress keyup focusout", data_parsley_required_message = "Please Enter City", ID = "TextCity" })
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group col-sm-12">
+                                @Html.DropDownListFor(m => m.Job_type, TYPE, new { @placeholder = "Job Type", @class = "form-control", data_parsley_required = "true", data_parsley_trigger = "change keypress keyup focusout", data_parsley_required_message = "Please Enter Job Type", ID = "TextType" })
+                            </div>
+                        </div>
+                        <button type="button" id="btnSave" class="btn btn-lg" data-size="xs">Post a Job</button>
+                    }
+                    <!-- checkbox -->
+
+                </div>
+            </div><!-- user-login -->
+        </div><!-- row -->
+    </div><!-- container -->
+</section><!-- signup-page -->
+
+<script type="text/javascript">
+
+
+    $("#btnSave").click(function () {
+
+        var ParsleyInstance = $("#frmpost").parsley();
+        $("#frmpost").parsley().validate();
+        if (ParsleyInstance.isValid()) {
+            //alert("success");
+            $("#frmpost").submit();
+        }
+        else {
+            return false;
+        }
+
+    })
+
+    function post_success(data) {
+
+        if (data.success == true) {
+            location.href = '/Home/Success';
+        }
+        else if (data.success == false) {
+
+            if (((data.message.substr(0, 1)) == 'F') || ((data.message.substr(0, 1)) == 'C')) {
+                $('#dangerMsg').html(data.message.substr(2))
+                $('.alert-danger').show();
+
+                setTimeout(function () {
+                    $('.alert-danger').hide();
+                }, 6000);
+            }
+            else {
+                $('#WarningMsg').html(data.message.substr(2))
+                $('.alert-warning').show();
+
+                setTimeout(function () {
+                    $('.alert-warning').hide();
+                }, 6000);
+            }
+            $('html,body').animate({ scrollTop: 0 }, 'slow');
+            var l = Ladda.create(document.getElementById('btnSave'));
+            l.stop();
+            setTimeout(function () {
+                HideContent()
+            }, 20000);
+        }
+
+    }
+
+    function AjaxBeginPost() {
+
+        var l = Ladda.create(document.getElementById('btnSave'));
+        l.start();
+    }
+
+    function AjaxFailurePost() {
+        var l = Ladda.create(document.getElementById('btnSave'));
+        l.stop();
+    }
+
+</script>
+

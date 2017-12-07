@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JobAppDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="JobAppDBEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="proc_LoginCheckPoint" ReturnType="Collection(String)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="ip_address" Mode="In" Type="String" />
+      <Parameter Name="ip_country" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_LoginFailed" ReturnType="Collection(String)">
+      <Parameter Name="user_name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_registrationConfirmation" ReturnType="Collection(String)">
+      <Parameter Name="registration_link" Mode="In" Type="String" />
+      <Parameter Name="used_on_ip" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_ResetPassword" ReturnType="Collection(String)">
+      <Parameter Name="password_token" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="used_on_origin" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_UpdatePasswordRegToken" ReturnType="Collection(String)">
+      <Parameter Name="dbop" Mode="In" Type="String" />
+      <Parameter Name="registered_user_id" Mode="In" Type="Int64" />
+      <Parameter Name="password_token" Mode="In" Type="String" />
+      <Parameter Name="ip_origin" Mode="In" Type="String" />
+      <Parameter Name="used_on_origin" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_GetEmailTemplate" ReturnType="Collection(JobAppDBModel.proc_GetEmailTemplate_Result)">
+      <Parameter Name="type" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="JobDetails" EntityType="JobAppDBModel.JobDetail" />
+    <EntitySet Name="tb_email_logs" EntityType="JobAppDBModel.tb_email_logs" />
+    <EntitySet Name="tb_email_templates" EntityType="JobAppDBModel.tb_email_templates" />
+    <EntitySet Name="tb_login_details" EntityType="JobAppDBModel.tb_login_details" />
+    <EntitySet Name="tb_logs" EntityType="JobAppDBModel.tb_logs" />
+    <EntitySet Name="tb_multiple_jobs" EntityType="JobAppDBModel.tb_multiple_jobs" />
+    <EntitySet Name="tb_registered_users" EntityType="JobAppDBModel.tb_registered_users" />
+    <EntitySet Name="tb_registered_users_registration_tokens" EntityType="JobAppDBModel.tb_registered_users_registration_tokens" />
+    <EntitySet Name="tb_registered_users_resetpasswordtokens" EntityType="JobAppDBModel.tb_registered_users_resetpasswordtokens" />
+    <EntitySet Name="tb_smtp_settings" EntityType="JobAppDBModel.tb_smtp_settings" />
+    <AssociationSet Name="FK_tb_login_details_tb_registered_users" Association="JobAppDBModel.FK_tb_login_details_tb_registered_users">
+      <End Role="tb_registered_users" EntitySet="tb_registered_users" />
+      <End Role="tb_login_details" EntitySet="tb_login_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_registered_users_registration_tokens_tb_registered_users" Association="JobAppDBModel.FK_tb_registered_users_registration_tokens_tb_registered_users">
+      <End Role="tb_registered_users" EntitySet="tb_registered_users" />
+      <End Role="tb_registered_users_registration_tokens" EntitySet="tb_registered_users_registration_tokens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_registered_users_resetpasswordtokens_tb_registered_users" Association="JobAppDBModel.FK_tb_registered_users_resetpasswordtokens_tb_registered_users">
+      <End Role="tb_registered_users" EntitySet="tb_registered_users" />
+      <End Role="tb_registered_users_resetpasswordtokens" EntitySet="tb_registered_users_resetpasswordtokens" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="proc_GetEmailTemplate_Result">
+    <Property Type="Int32" Name="email_template_id" Nullable="false" />
+    <Property Type="String" Name="content" Nullable="false" />
+    <Property Type="String" Name="subject" Nullable="false" MaxLength="400" />
+  </ComplexType>
+  <EntityType Name="JobDetail">
+    <Key>
+      <PropertyRef Name="job_details_id" />
+    </Key>
+    <Property Name="job_details_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="job_title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="job_description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="job_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="job_city" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="job_organization" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="job_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="job_img" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="jo_date_modified" Type="DateTime" Precision="3" />
+    <Property Name="is_active" Type="Boolean" Nullable="false" />
+    <Property Name="job_applied_date" Type="DateTime" Precision="3" />
+    <Property Name="employee_id" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_email_logs">
+    <Key>
+      <PropertyRef Name="email_log_id" />
+    </Key>
+    <Property Name="email_log_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="to" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="created" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="subject" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="has_attachement" Type="Boolean" Nullable="false" />
+    <Property Name="error" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="log_entered_date" Type="DateTime" Precision="3" />
+    <Property Name="user_identifier" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="attachment_path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_email_templates">
+    <Key>
+      <PropertyRef Name="email_template_id" />
+    </Key>
+    <Property Name="email_template_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="subject" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="modified_on" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="for" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="languagecode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="short_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sms_content" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_login_details">
+    <Key>
+      <PropertyRef Name="login_detail_id" />
+    </Key>
+    <Property Name="login_detail_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="last_login" Type="DateTime" Precision="3" />
+    <Property Name="registered_on" Type="DateTime" Precision="3" />
+    <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modified_on" Type="DateTime" Precision="3" />
+    <Property Name="login_failed_count" Type="Int16" />
+    <Property Name="login_locked" Type="Boolean" />
+    <Property Name="last_accessed_from" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="last_used_token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="registered_user_id" Type="Int64" />
+    <NavigationProperty Name="tb_registered_users" Relationship="JobAppDBModel.FK_tb_login_details_tb_registered_users" FromRole="tb_login_details" ToRole="tb_registered_users" />
+  </EntityType>
+  <EntityType Name="tb_logs">
+    <Key>
+      <PropertyRef Name="log_id" />
+    </Key>
+    <Property Name="log_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="short_description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="msg_function" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="msg_type" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="error_code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="error_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="transaction_ref_id" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="function_name" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="stack_trace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="trace_data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="user_Identifier" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ipaddress" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="tb_multiple_jobs">
+    <Key>
+      <PropertyRef Name="multiple_jobs_id" />
+    </Key>
+    <Property Name="multiple_jobs_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="registered_user_id" Type="Int64" Nullable="false" />
+    <Property Name="employee_id" Type="Int64" Nullable="false" />
+    <Property Name="applied_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="jobs_details_id" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_registered_users">
+    <Key>
+      <PropertyRef Name="registered_user_id" />
+    </Key>
+    <Property Name="registered_user_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="first_name" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="last_name" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="middle_name" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="dob" Type="DateTime" Precision="3" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="email_address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="gender" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="mobile_country_code" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="mobile_number" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="registred_on" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="registration_ip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="is_active" Type="Boolean" Nullable="false" />
+    <Property Name="Country" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Province" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="isEmployer" Type="Boolean" />
+    <Property Name="Organization" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tb_login_details" Relationship="JobAppDBModel.FK_tb_login_details_tb_registered_users" FromRole="tb_registered_users" ToRole="tb_login_details" />
+    <NavigationProperty Name="tb_registered_users_registration_tokens" Relationship="JobAppDBModel.FK_tb_registered_users_registration_tokens_tb_registered_users" FromRole="tb_registered_users" ToRole="tb_registered_users_registration_tokens" />
+    <NavigationProperty Name="tb_registered_users_resetpasswordtokens" Relationship="JobAppDBModel.FK_tb_registered_users_resetpasswordtokens_tb_registered_users" FromRole="tb_registered_users" ToRole="tb_registered_users_resetpasswordtokens" />
+  </EntityType>
+  <EntityType Name="tb_registered_users_registration_tokens">
+    <Key>
+      <PropertyRef Name="registration_token_id" />
+    </Key>
+    <Property Name="registration_token_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="registration_link" Type="String" Nullable="false" MaxLength="650" FixedLength="false" Unicode="true" />
+    <Property Name="origin_ip" Type="String" Nullable="false" MaxLength="650" FixedLength="false" Unicode="true" />
+    <Property Name="expired_on" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="used_on" Type="DateTime" Precision="3" />
+    <Property Name="used_on_ip" Type="String" MaxLength="650" FixedLength="false" Unicode="true" />
+    <Property Name="registered_user_id" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tb_registered_users" Relationship="JobAppDBModel.FK_tb_registered_users_registration_tokens_tb_registered_users" FromRole="tb_registered_users_registration_tokens" ToRole="tb_registered_users" />
+  </EntityType>
+  <EntityType Name="tb_registered_users_resetpasswordtokens">
+    <Key>
+      <PropertyRef Name="password_token_id" />
+    </Key>
+    <Property Name="password_token_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="registered_user_id" Type="Int64" Nullable="false" />
+    <Property Name="password_token" Type="String" Nullable="false" MaxLength="950" FixedLength="false" Unicode="true" />
+    <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ip_origin" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="is_active" Type="Boolean" Nullable="false" />
+    <Property Name="expires_on" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="used_on_origin" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="used_datetime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tb_registered_users" Relationship="JobAppDBModel.FK_tb_registered_users_resetpasswordtokens_tb_registered_users" FromRole="tb_registered_users_resetpasswordtokens" ToRole="tb_registered_users" />
+  </EntityType>
+  <EntityType Name="tb_smtp_settings">
+    <Key>
+      <PropertyRef Name="smtp_setting_id" />
+    </Key>
+    <Property Name="smtp_setting_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="port" Type="Int32" Nullable="false" />
+    <Property Name="username" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="use_anonymous" Type="Boolean" Nullable="false" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+    <Property Name="from_address" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="smtp_type" Type="Int32" Nullable="false" />
+    <Property Name="last_modified_on" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="last_modified_by" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <Property Name="use_https" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK_tb_login_details_tb_registered_users">
+    <End Type="JobAppDBModel.tb_registered_users" Role="tb_registered_users" Multiplicity="0..1" />
+    <End Type="JobAppDBModel.tb_login_details" Role="tb_login_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_registered_users">
+        <PropertyRef Name="registered_user_id" />
+      </Principal>
+      <Dependent Role="tb_login_details">
+        <PropertyRef Name="registered_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_registered_users_registration_tokens_tb_registered_users">
+    <End Type="JobAppDBModel.tb_registered_users" Role="tb_registered_users" Multiplicity="1" />
+    <End Type="JobAppDBModel.tb_registered_users_registration_tokens" Role="tb_registered_users_registration_tokens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_registered_users">
+        <PropertyRef Name="registered_user_id" />
+      </Principal>
+      <Dependent Role="tb_registered_users_registration_tokens">
+        <PropertyRef Name="registered_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_registered_users_resetpasswordtokens_tb_registered_users">
+    <End Type="JobAppDBModel.tb_registered_users" Role="tb_registered_users" Multiplicity="1" />
+    <End Type="JobAppDBModel.tb_registered_users_resetpasswordtokens" Role="tb_registered_users_resetpasswordtokens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_registered_users">
+        <PropertyRef Name="registered_user_id" />
+      </Principal>
+      <Dependent Role="tb_registered_users_resetpasswordtokens">
+        <PropertyRef Name="registered_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

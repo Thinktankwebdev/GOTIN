@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JobAppDBModelStoreContainer" CdmEntityContainer="JobAppDBEntities">
+    <FunctionImportMapping FunctionImportName="proc_LoginCheckPoint" FunctionName="JobAppDBModel.Store.proc_LoginCheckPoint" />
+    <FunctionImportMapping FunctionImportName="proc_LoginFailed" FunctionName="JobAppDBModel.Store.proc_LoginFailed" />
+    <FunctionImportMapping FunctionImportName="proc_registrationConfirmation" FunctionName="JobAppDBModel.Store.proc_registrationConfirmation" />
+    <FunctionImportMapping FunctionImportName="proc_ResetPassword" FunctionName="JobAppDBModel.Store.proc_ResetPassword" />
+    <EntitySetMapping Name="JobDetails">
+      <EntityTypeMapping TypeName="JobAppDBModel.JobDetail">
+        <MappingFragment StoreEntitySet="JobDetails">
+          <ScalarProperty Name="registered_user_id" ColumnName="registered_user_id" />
+          <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+          <ScalarProperty Name="job_applied_date" ColumnName="job_applied_date" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="jo_date_modified" ColumnName="jo_date_modified" />
+          <ScalarProperty Name="job_img" ColumnName="job_img" />
+          <ScalarProperty Name="job_date" ColumnName="job_date" />
+          <ScalarProperty Name="job_organization" ColumnName="job_organization" />
+          <ScalarProperty Name="job_city" ColumnName="job_city" />
+          <ScalarProperty Name="job_type" ColumnName="job_type" />
+          <ScalarProperty Name="job_description" ColumnName="job_description" />
+          <ScalarProperty Name="job_title" ColumnName="job_title" />
+          <ScalarProperty Name="job_details_id" ColumnName="job_details_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_email_logs">
+      <EntityTypeMapping TypeName="JobAppDBModel.tb_email_logs">
+        <MappingFragment StoreEntitySet="tb_email_logs">
+          <ScalarProperty Name="attachment_path" ColumnName="attachment_path" />
+          <ScalarProperty Name="user_identifier" ColumnName="user_identifier" />
+          <ScalarProperty Name="log_entered_date" ColumnName="log_entered_date" />
+          <ScalarProperty Name="error" ColumnName="error" />
+          <ScalarProperty Name="has_attachement" ColumnName="has_attachement" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="cc" ColumnName="cc" />
+          <ScalarProperty Name="to" ColumnName="to" />
+          <ScalarProperty Name="email_log_id" ColumnName="email_log_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_login_details">
+      <EntityTypeMapping TypeName="JobAppDBModel.tb_login_details">
+        <MappingFragment StoreEntitySet="tb_login_details">
+          <ScalarProperty Name="registered_user_id" ColumnName="registered_user_id" />
+          <ScalarProperty Name="last_used_token" ColumnName="last_used_token" />
+          <ScalarProperty Name="last_accessed_from" ColumnName="last_accessed_from" />
+          <ScalarProperty Name="login_locked" ColumnName="login_locked" />
+          <ScalarProperty Name="login_failed_count" ColumnName="login_failed_count" />
+          <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+          <ScalarProperty Name="created_on" ColumnName="created_on" />
+          <ScalarProperty Name="registered_on" ColumnName="registered_on" />
+          <ScalarProperty Name="last_login" ColumnName="last_login" />
+          <ScalarProperty Name="login_detail_id" ColumnName="login_detail_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_registered_users">
+      <EntityTypeMapping TypeName="JobAppDBModel.tb_registered_users">
+        <MappingFragment StoreEntitySet="tb_registered_users">
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Organization" ColumnName="Organization" />
+          <ScalarProperty Name="isEmployer" ColumnName="isEmployer" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="registration_ip" ColumnName="registration_ip" />
+          <ScalarProperty Name="registred_on" ColumnName="registred_on" />
+          <ScalarProperty Name="mobile_number" ColumnName="mobile_number" />
+          <ScalarProperty Name="mobile_country_code" ColumnName="mobile_country_code" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="email_address" ColumnName="email_address" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="middle_name" ColumnName="middle_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="registered_user_id" ColumnName="registered_user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_registered_users_registration_tokens">
+      <EntityTypeMapping TypeName="JobAppDBModel.tb_registered_users_registration_tokens">
+        <MappingFragment StoreEntitySet="tb_registered_users_registration_tokens">
+          <ScalarProperty Name="registered_user_id" ColumnName="registered_user_id" />
+          <ScalarProperty Name="used_on_ip" ColumnName="used_on_ip" />
+          <ScalarProperty Name="used_on" ColumnName="used_on" />
+          <ScalarProperty Name="created_on" ColumnName="created_on" />
+          <ScalarProperty Name="expired_on" ColumnName="expired_on" />
+          <ScalarProperty Name="origin_ip" ColumnName="origin_ip" />
+          <ScalarProperty Name="registration_link" ColumnName="registration_link" />
+          <ScalarProperty Name="registration_token_id" ColumnName="registration_token_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_registered_users_resetpasswordtokens">
+      <EntityTypeMapping TypeName="JobAppDBModel.tb_registered_users_resetpasswordtokens">
+        <MappingFragment StoreEntitySet="tb_registered_users_resetpasswordtokens">
+          <ScalarProperty Name="used_datetime" ColumnName="used_datetime" />
+          <ScalarProperty Name="used_on_origin" ColumnName="used_on_origin" />
+          <ScalarProperty Name="expires_on" ColumnName="expires_on" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="ip_origin" ColumnName="ip_origin" />
+          <ScalarProperty Name="created_on" ColumnName="created_on" />
+          <ScalarProperty Name="password_token" ColumnName="password_token" />
+          <ScalarProperty Name="registered_user_id" ColumnName="registered_user_id" />
+          <ScalarProperty Name="password_token_id" ColumnName="password_token_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_smtp_settings">
+      <EntityTypeMapping TypeName="JobAppDBModel.tb_smtp_settings">
+        <MappingFragment StoreEntitySet="tb_smtp_settings">
+          <ScalarProperty Name="use_https" ColumnName="use_https" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+          <ScalarProperty Name="last_modified_on" ColumnName="last_modified_on" />
+          <ScalarProperty Name="smtp_type" ColumnName="smtp_type" />
+          <ScalarProperty Name="from_address" ColumnName="from_address" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="use_anonymous" ColumnName="use_anonymous" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="port" ColumnName="port" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="smtp_setting_id" ColumnName="smtp_setting_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
