@@ -1,0 +1,61 @@
+﻿<Properties StartupConfiguration="{18764590-139E-4B42-BC08-D10A82DB6101}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ThinkTankJobApp/Views/Home/Register.cshtml">
+    <Files>
+      <File FileName="ThinkTankJobApp/Views/Shared/_header.cshtml" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Content/js/script.js" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Content/js/timepicki.js" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Content/js/switcher.js" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Content/js/smoothscroll.min.js" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Content/js/fadf.js" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Views/Home/_SearchJobs.cshtml" Line="59" Column="10" />
+      <File FileName="ThinkTankJobApp/Views/Home/AboutUs.cshtml" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Views/Home/Contact.cshtml" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Views/Home/ForgotPassword.cshtml" Line="27" Column="48" />
+      <File FileName="ThinkTankJobApp/Views/Jobs/Index.cshtml" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Views/Shared/_Layout.cshtml" Line="16" Column="5" />
+      <File FileName="ThinkTankJobApp/Views/Shared/_head.cshtml" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Views/Shared/_LoginPartial.cshtml" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Views/Shared/Error.cshtml" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Views/_ViewStart.cshtml" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Views/Jobs/AppliedJobs.cshtml" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Views/Jobs/Details.cshtml" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Views/Shared/_footer.cshtml" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Views/Jobs/_Employers.cshtml" Line="1" Column="34" />
+      <File FileName="ThinkTankJobApp/Views/Jobs/_MainSearchJobs.cshtml" Line="52" Column="15" />
+      <File FileName="ThinkTankJobApp/Views/Jobs/PostJobs.cshtml" Line="32" Column="1" />
+      <File FileName="ThinkTankJobApp/JobAppDB.edmx" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/JobAppDB.edmx.diagram" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/JobAppDB.Designer.cs" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Global.asax" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Views/Home/Error.cshtml" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Views/Home/Index.cshtml" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Content/css/password.css" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Content/css/responsive.css" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Views/Home/Login.cshtml" Line="18" Column="35" />
+      <File FileName="ThinkTankJobApp/Views/Home/Register.cshtml" Line="133" Column="75" />
+      <File FileName="ThinkTankJobApp/Views/Home/ResetPassword.cshtml" Line="24" Column="74" />
+      <File FileName="ThinkTankJobApp/Views/Web.config" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Models/JobDetailsModel.cs" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Models/LoginCheckPointModel.cs" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Models/LoginModel.cs" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Models/MailContent.cs" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Models/Mailer.cs" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Models/MultipleJobsModel.cs" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Models/RegisteredUser.cs" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Models/ResetPasswordModel.cs" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Models/Response.cs" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Models/SmtpSettingModel.cs" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Models/ClsFunction.cs" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Models/ServiceContext/JobsContext.cs" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Models/ServiceContext/MailerContext.cs" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Views/Home/Success.cshtml" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.ThinkTankJobApp PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
