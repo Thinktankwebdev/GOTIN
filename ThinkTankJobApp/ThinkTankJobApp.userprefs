@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{18764590-139E-4B42-BC08-D10A82DB6101}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ThinkTankJobApp/Views/Home/Register.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ThinkTankJobApp/Controllers/HomeController.cs">
     <Files>
       <File FileName="ThinkTankJobApp/Views/Shared/_header.cshtml" Line="1" Column="1" />
       <File FileName="ThinkTankJobApp/Content/js/script.js" Line="1" Column="1" />
@@ -49,6 +49,7 @@
       <File FileName="ThinkTankJobApp/Models/ServiceContext/JobsContext.cs" Line="1" Column="1" />
       <File FileName="ThinkTankJobApp/Models/ServiceContext/MailerContext.cs" Line="1" Column="1" />
       <File FileName="ThinkTankJobApp/Views/Home/Success.cshtml" Line="1" Column="1" />
+      <File FileName="ThinkTankJobApp/Controllers/HomeController.cs" Line="254" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
